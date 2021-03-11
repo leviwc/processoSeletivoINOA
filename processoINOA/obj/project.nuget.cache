@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "DUCPtKhQjUOO1btwmgeERZBfikRzCBChhJazTpthzsFnLBxauiWJ64jGmJM41HS29+ikcVhfc+aCZIbWatU5PQ==",
+  "dgSpecHash": "MpMm739ezHdq92PGwkqKixkQ0msGL2yo7pzCBYUlujHV7YPKsZiTi5mY7JRiHZRl/e27KueTu+TPtDJJk0OkVA==",
   "success": true,
   "projectFilePath": "/mnt/c/inoa/processoINOA/processoINOA.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/levi/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.configuration.configurationmanager/5.0.0/system.configuration.configurationmanager.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.drawing.common/5.0.0/system.drawing.common.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.security.cryptography.protecteddata/5.0.0/system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.security.permissions/5.0.0/system.security.permissions.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
+    "/home/levi/.nuget/packages/system.windows.extensions/5.0.0/system.windows.extensions.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
