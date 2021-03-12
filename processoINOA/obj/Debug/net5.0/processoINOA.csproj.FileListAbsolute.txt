@@ -27,3 +27,11 @@
 /mnt/c/inoa/processoINOA/bin/Debug/net5.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
 /mnt/c/inoa/processoINOA/obj/Debug/net5.0/processoINOA.csproj.CopyComplete
 /mnt/c/inoa/processoINOA/bin/Debug/net5.0/processoINOA.dll.config
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/Apache.Arrow.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/Microsoft.Data.Analysis.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/Microsoft.ML.DataView.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/Newtonsoft.Json.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/CsvHelper.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/Flurl.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/Flurl.Http.dll
+/mnt/c/inoa/processoINOA/bin/Debug/net5.0/YahooFinanceApi.dll

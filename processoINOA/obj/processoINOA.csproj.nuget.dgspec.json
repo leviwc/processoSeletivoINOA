@@ -38,9 +38,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.Data.Analysis": {
+              "target": "Package",
+              "version": "[0.4.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "YahooFinanceApi": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "newtonsoft.json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             }
           },
           "imports": [
