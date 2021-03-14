@@ -17,7 +17,7 @@ namespace processoINOA {
       this.emailDeEnvio = emailDeEnvio;
     }
     public void SendEmail(bool buyStock, string stockName) {
-      this.smtpClient.Send(emailDeEnvio, emailRecipiente, "Alerta de ações", (buyStock ? "Buy the stock " : "Sell the stock ") + stockName);
+      this.smtpClient.Send(emailDeEnvio, emailRecipiente, "Alerta de ações", (buyStock ? "Compre a ação " : "Venda a açãoa ") + stockName);
     }
   }
 }
