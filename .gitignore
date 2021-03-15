@@ -1,0 +1,5 @@
+bin/ #ignora o bin
+obj/ #ignora o obj
+
+*.js #ignora tudo que termina com .js
+.env #ignora o .env

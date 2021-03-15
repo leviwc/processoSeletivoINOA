@@ -27,7 +27,6 @@ namespace processoINOA {
             } else if (price > stock.redLine && price < stock.blueLine) {
               stock.state = 0;
             }
-            Console.WriteLine(stock.name);
           }));
           if (taskList.Count == bucketListMaxSize) {
             try {
@@ -56,7 +55,7 @@ namespace processoINOA {
           }
           taskList.Clear();
         }
-        System.Threading.Thread.Sleep(2000);
+        await Task.Delay(2000);
       }
     }
     static List<Stock> ParseArgs(string[] args) {
