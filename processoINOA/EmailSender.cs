@@ -4,8 +4,8 @@ using System.Net.Mail;
 namespace processoINOA {
   public class EmailSender {
     public SmtpClient smtpClient;
-    string emailRecipiente;
-    string emailDeEnvio;
+    public string emailRecipiente;
+    public string emailDeEnvio;
     public EmailSender(string emailDeEnvio, string senhaDeEnvio, string emailRecipiente) {
       this.smtpClient = new SmtpClient("smtp.gmail.com") {
         UseDefaultCredentials = false,
@@ -17,7 +17,7 @@ namespace processoINOA {
       this.emailDeEnvio = emailDeEnvio;
     }
     public void SendEmail(bool buyStock, string stockName) {
-      this.smtpClient.Send(emailDeEnvio, emailRecipiente, "Alerta de ações", (buyStock ? "Compre a ação " : "Venda a açãoa ") + stockName);
+      this.smtpClient.Send(emailDeEnvio, emailRecipiente, "Alerta de ações", (buyStock ? "Compre a ação " : "Venda a ação ") + stockName);
     }
   }
 }
