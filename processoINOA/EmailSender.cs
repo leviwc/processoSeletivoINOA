@@ -3,13 +3,13 @@ using System.Net.Mail;
 
 namespace processoINOA {
   public class EmailSender {
-    public SmtpClient smtpClient;
-    public string emailRecipiente;
-    public string emailDeEnvio;
+    public SmtpClient smtpClient { get; set; }
+    public string emailRecipiente { get; set; }
+    public string emailDeEnvio { get; set; }
     public EmailSender(string emailDeEnvio, string senhaDeEnvio, string emailRecipiente) {
-      this.smtpClient = new SmtpClient("smtp.gmail.com") {
+      this.smtpClient = new SmtpClient(Variables.smtpUrl) {
         UseDefaultCredentials = false,
-        Port = 587,
+        Port = Variables.smtpPort,
         Credentials = new NetworkCredential(emailDeEnvio, senhaDeEnvio),
         EnableSsl = true,
       };

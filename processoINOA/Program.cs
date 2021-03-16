@@ -3,18 +3,18 @@ using System.Configuration;
 using YahooFinanceApi;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using DotNetEnv;
 namespace processoINOA {
   class Program {
     static async Task Main(string[] args) {
+      DotNetEnv.Env.Load("config.env");
       List<Stock> stockList = ParseArgs(args);
-      EmailSender emailSender = new EmailSender(ConfigurationManager.AppSettings.Get("emailDeEnvio"), ConfigurationManager.AppSettings.Get("senhaDeEnvio"), ConfigurationManager.AppSettings.Get("emailRecipiente"));
+      EmailSender emailSender = new EmailSender(Variables.emailDeEnvio, Variables.senhaDeEnvio, Variables.emailRecipiente);
       while (true) {
         List<Task> taskList = new List<Task>();
-        int bucketListMaxSize = 3;
         foreach (var stock in stockList) {
           taskList.Add(Task.Run(async () => {
-            var emailSenderInTask = new EmailSender(emailSender.emailDeEnvio, ConfigurationManager.AppSettings.Get("senhaDeEnvio"), emailSender.emailRecipiente);
+            var emailSenderInTask = new EmailSender(Variables.emailDeEnvio, Variables.senhaDeEnvio, Variables.emailRecipiente);
             var securities = await Yahoo.Symbols(stock.name).Fields(Field.Symbol, Field.RegularMarketPrice, Field.FiftyTwoWeekHigh).QueryAsync();
             var apiResult = securities[stock.name];
             decimal price = Convert.ToDecimal(apiResult.RegularMarketPrice);
@@ -28,7 +28,7 @@ namespace processoINOA {
               stock.state = 0;
             }
           }));
-          if (taskList.Count == bucketListMaxSize) {
+          if (taskList.Count == Variables.bucketListMaxSize) {
             try {
               await Task.WhenAll(taskList);
             } catch { }
