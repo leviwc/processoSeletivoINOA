@@ -4,9 +4,7 @@ namespace processoINOA {
     public decimal redLine { get; set; }
     public decimal blueLine { get; set; }
     public int state { get; set; }
-    public Stock() {
-      name = "";
-    }
+    public Stock() { }
     public bool Validate() {
       bool isValid = true;
       isValid &= (redLine < blueLine);

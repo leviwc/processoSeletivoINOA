@@ -1,5 +1,4 @@
 /mnt/c/inoa/processoINOA/bin/Debug/net5.0/processoINOA
-/mnt/c/inoa/processoINOA/bin/Debug/net5.0/processoINOA.dll.config
 /mnt/c/inoa/processoINOA/bin/Debug/net5.0/processoINOA.deps.json
 /mnt/c/inoa/processoINOA/bin/Debug/net5.0/processoINOA.runtimeconfig.json
 /mnt/c/inoa/processoINOA/bin/Debug/net5.0/processoINOA.runtimeconfig.dev.json
