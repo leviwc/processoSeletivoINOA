@@ -31,7 +31,7 @@ Se seu sistema operacional for windows 10 podera rodar o .exe entrando na pasta 
 Também é possivel gerar um novo arquivo .exe para outros sistemas operacionais com:
 
 ```
-dotnet publish -c Debug -r <RID do seu sistema operacional>
+dotnet publish -c Release -r <RID do seu sistema operacional>
 ```
 mais informações sobre RIDS suportadas em https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
 ## Dados utilizados
