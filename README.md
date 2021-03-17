@@ -11,22 +11,21 @@ Para que o programa rode, será necessario criar um arquivo na pasta processoINO
 
 ```
 git clone https://github.com/leviwc/processoSeletivoINOA.git
-cd inoa
-cd processoINOA
-dotnet restore
+cd processoSeletivoINOA/processoINOA
 ```
-e para gerar um arquivo .exe use:
+ para gerar um arquivo .exe use:
 
 
 ```
-dotnet publish -c Debug -r win10-x64(ou seu codigo do seu sistema operacional)
+dotnet publish -c Debug -r <RID do seu sistema operacional>
 ```
+mais informações sobre RIDS suportadas em https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
 
 ### Como usar:
-Para rodar o .exe entre na pasta inoa/processoINOA/bin/Debug/net5.0/win10-x64 e rode o programa no console com as ações que deseja monitorar, exemplo:
+Para rodar o .exe entre na pasta processoSeletivoINOA/processoINOA/bin/Debug/net5.0/win10-x64/publish e rode o programa no console com as ações que deseja monitorar, exemplo:
 
 ```
-./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 22 30.14
+./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
 ```
 
 
