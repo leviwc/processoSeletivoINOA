@@ -22,7 +22,7 @@ BUCKET_SIZE = "3" #valor da quantiade limite de chamadas ao mesmo tempo na api y
 ```
 
 ### Como usar:
-Se seu sistema operacional for windows 10 podera rodar o .exe entrando na pasta processoSeletivoINOA/processoINOA/bin/Debug/net5.0/win10-x64/publish e rodando o programa no console com as ações que deseja monitorar, exemplo:
+Se seu sistema operacional for windows 10 podera rodar o .exe entrando na pasta processoSeletivoINOA/processoINOA/bin/Release/net5.0/win10-x64/publish e rodando o programa no console com as ações que deseja monitorar, exemplo:
 
 ```
 ./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
