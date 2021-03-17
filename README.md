@@ -27,6 +27,10 @@ Para rodar o .exe entre na pasta processoSeletivoINOA/processoINOA/bin/Debug/net
 ```
 ./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
 ```
+## Dados utilizados
+Os dados das ações da B3 foram buscados da api YahooFinance com a ajuda da biblioteca YahooFinanceApi versão 2.1.2
+
+
 
 
 
