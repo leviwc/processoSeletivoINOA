@@ -62,8 +62,8 @@ namespace processoINOA {
         stock.state = 0;
         stock.name = args[i];
         try {
-          stock.blueLine = Convert.ToDecimal(args[i + 1].Replace(',', '.'));
-          stock.redLine = Convert.ToDecimal(args[i + 2].Replace(',', '.'));
+          stock.blueLine = Convert.ToDecimal(args[i + 1].Replace('.', ','));
+          stock.redLine = Convert.ToDecimal(args[i + 2].Replace('.', ','));
         } catch {
           Console.WriteLine("Formatação errada das ações");
           Environment.Exit(1);
