@@ -22,7 +22,12 @@ BUCKET_SIZE = "3" #valor da quantiade limite de chamadas ao mesmo tempo na api y
 ```
 
 ### Como usar:
-Se seu sistema operacional for windows 10 podera rodar o .exe entrando na pasta processoSeletivoINOA/processoINOA/bin/Release/net5.0/win10-x64/publish e rodando o programa no console com as ações que deseja monitorar, exemplo:
+Se seu sistema operacional for windows 10 podera rodar o .exe entrando na pasta processoSeletivoINOA/processoINOA/bin/Release/net5.0/win10-x64/publish com
+```
+cd processoSeletivoINOA/processoINOA/bin/Release/net5.0/win10-x64/publish
+```
+
+e rodando o programa no console com as ações que deseja monitorar, exemplo:
 
 ```
 ./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
@@ -34,6 +39,12 @@ Também é possivel gerar um novo arquivo .exe para outros sistemas operacionais
 dotnet publish -c Release -r <RID do seu sistema operacional>
 ```
 mais informações sobre RIDS suportadas em https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
+
+Também é possivel rodar a aplicação na pasta processoSeletivoINOA/processoINOA com dotnet run, ex:
+```
+./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
+```
+
 ## Dados utilizados
 Os dados das ações da B3 foram buscados da api YahooFinance com a ajuda da biblioteca YahooFinanceApi versão 2.1.2
 

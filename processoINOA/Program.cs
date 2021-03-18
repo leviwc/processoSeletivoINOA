@@ -1,13 +1,23 @@
 ﻿using System;
+using System.Threading;
 using YahooFinanceApi;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Globalization;
 namespace processoINOA {
   class Program {
+    private static readonly CancellationTokenSource canToken = new CancellationTokenSource();
+    public static event ConsoleCancelEventHandler? CancelKeyPress;
     static async Task Main(string[] args) {
       DotNetEnv.Env.Load("config.env");
       List<Stock> stockList = ParseArgs(args);
-      while (true) {
+      Console.CancelKeyPress += (s, e) => {
+        Console.WriteLine("Fim do programa");
+        canToken.Cancel();
+        e.Cancel = true;
+      };
+      while (!canToken.IsCancellationRequested) {
+
         List<Task> taskList = new List<Task>();
         foreach (var stock in stockList) {
           taskList.Add(Task.Run(async () => {
@@ -62,8 +72,8 @@ namespace processoINOA {
         stock.state = 0;
         stock.name = args[i];
         try {
-          stock.blueLine = Convert.ToDecimal(args[i + 1].Replace('.', ','));
-          stock.redLine = Convert.ToDecimal(args[i + 2].Replace('.', ','));
+          stock.blueLine = Convert.ToDecimal(args[i + 1], new CultureInfo("en-GB"));
+          stock.redLine = Convert.ToDecimal(args[i + 2], new CultureInfo("en-GB"));
         } catch {
           Console.WriteLine("Formatação errada das ações");
           Environment.Exit(1);
