@@ -11,7 +11,7 @@ Clone o projeto em uma pasta com:
 ```
 git clone https://github.com/leviwc/processoSeletivoINOA.git
 ```
-Para que o programa rode, será necessario criar um arquivo na pasta processoINOA config.env, com as informações descritas no config.env.example.
+Para que o programa rode, será necessario criar um arquivo config.env, com as informações descritas no config.env.example.
 ```
 EMAIL_DE_ENVIO = <email de login/envio>
 SENHA_DE_ENVIO = <senha do login/envio>
@@ -22,6 +22,8 @@ BUCKET_SIZE = "3" #valor da quantiade limite de chamadas ao mesmo tempo na api y
 ```
 
 ### Como usar:
+Sera necessario colocar o arquivo config.env na mesma pasta do .exe
+
 Se seu sistema operacional for windows 10 podera rodar o .exe entrando na pasta processoSeletivoINOA/processoINOA/bin/Release/net5.0/win10-x64/publish com
 ```
 cd processoSeletivoINOA/processoINOA/bin/Release/net5.0/win10-x64/publish
