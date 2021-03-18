@@ -11,7 +11,7 @@ Clone o projeto em uma pasta com:
 ```
 git clone https://github.com/leviwc/processoSeletivoINOA.git
 ```
-Para que o programa rode, será necessario criar um arquivo config.env que está na pasta processoINOA, com as informações descritas no config.env.example, informações sem '<' e  '>'.
+Para que o programa rode, será necessario criar um arquivo config.env que está na pasta processoSeletivoINOA/processoINOA, com as informações descritas no config.env.example ,sendo elas sem '<' e  '>'.
 ```
 EMAIL_DE_ENVIO = "<email de login/envio>"
 SENHA_DE_ENVIO = "<senha do login/envio>"
@@ -36,6 +36,7 @@ e rodando o programa no console com as ações que deseja monitorar, exemplo:
 ```
 
 Para os passos abaixo, será necessario instalar o .NET SDK 5.0.201, mais informações em https://dotnet.microsoft.com/download/dotnet/5.0
+
 Também é possivel gerar um novo arquivo .exe para outros sistemas operacionais com:
 
 ```
