@@ -11,13 +11,13 @@ Clone o projeto em uma pasta com:
 ```
 git clone https://github.com/leviwc/processoSeletivoINOA.git
 ```
-Para que o programa rode, será necessario criar um arquivo config.env, com as informações descritas no config.env.example.
+Para que o programa rode, será necessario criar um arquivo config.env que está na pasta processoINOA, com as informações descritas no config.env.example, informações sem '<' e  '>'.
 ```
-EMAIL_DE_ENVIO = <email de login/envio>
-SENHA_DE_ENVIO = <senha do login/envio>
-EMAIL_RECIPIENTE = <email de destino>
-SMTP_URL = <url do smtp server>
-SMTP_PORT = <port do smtp>
+EMAIL_DE_ENVIO = "<email de login/envio>"
+SENHA_DE_ENVIO = "<senha do login/envio>"
+EMAIL_RECIPIENTE = "<email de destino>"
+SMTP_URL = "<url do smtp server>"
+SMTP_PORT = "<port do smtp>"
 BUCKET_SIZE = "3" #valor da quantiade limite de chamadas ao mesmo tempo na api yahoo
 ```
 
@@ -35,6 +35,7 @@ e rodando o programa no console com as ações que deseja monitorar, exemplo:
 ./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
 ```
 
+Para os passos abaixo, será necessario instalar o .NET SDK 5.0.201, mais informações em https://dotnet.microsoft.com/download/dotnet/5.0
 Também é possivel gerar um novo arquivo .exe para outros sistemas operacionais com:
 
 ```
@@ -42,9 +43,9 @@ dotnet publish -c Release -r <RID do seu sistema operacional>
 ```
 mais informações sobre RIDS suportadas em https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
 
-Também é possivel rodar a aplicação na pasta processoSeletivoINOA/processoINOA com dotnet run, ex:
+Também é possivel rodar a aplicação na pasta processoSeletivoINOA/processoINOA com dotnet run, mas a pasta config.env tera que ficar em processoSeletivoINOA/processoINOA  ex:
 ```
-./processoINOA.exe BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
+dotnet run BBAS3 40.32 20.30 PETR4 22.67 22.59 BBDC3 30.14 20
 ```
 
 ## Dados utilizados
