@@ -1,3 +1,5 @@
 
 *.js 
-config.env 
+config.env
+/processoINOA/bin/*
+/processoINOA/obj/*

@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace processoINOA {
   public class EmailSender {
@@ -16,8 +17,8 @@ namespace processoINOA {
       this.emailRecipiente = emailRecipiente;
       this.emailDeEnvio = emailDeEnvio;
     }
-    public void SendEmail(bool buyStock, string stockName) {
-      this.smtpClient.Send(emailDeEnvio, emailRecipiente, "Alerta de ações", (buyStock ? "Compre a ação " : "Venda a ação ") + stockName);
+    public async Task SendEmail(bool buyStock, string stockName) {
+      await this.smtpClient.SendMailAsync(emailDeEnvio, emailRecipiente, "Alerta de ações", (buyStock ? "Compre a ação " : "Venda a ação ") + stockName);
     }
   }
 }

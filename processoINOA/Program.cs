@@ -16,23 +16,22 @@ namespace processoINOA {
         canToken.Cancel();
         e.Cancel = true;
       };
+      var emailSenderInTask = new EmailSender(Variables.emailDeEnvio, Variables.senhaDeEnvio, Variables.emailRecipiente);
       while (!canToken.IsCancellationRequested) {
-
         List<Task> taskList = new List<Task>();
         foreach (var stock in stockList) {
           taskList.Add(Task.Run(async () => {
-            var emailSenderInTask = new EmailSender(Variables.emailDeEnvio, Variables.senhaDeEnvio, Variables.emailRecipiente);
             var securities = await Yahoo.Symbols(stock.name).Fields(Field.Symbol, Field.RegularMarketPrice, Field.FiftyTwoWeekHigh).QueryAsync();
             var apiResult = securities[stock.name];
             decimal price = Convert.ToDecimal(apiResult.RegularMarketPrice);
-            if (price <= stock.redLine && stock.state != -1) {
-              stock.state = -1;
-              emailSenderInTask.SendEmail(true, stock.name);
-            } else if (price >= stock.blueLine && stock.state != 1) {
-              stock.state = 1;
-              emailSenderInTask.SendEmail(false, stock.name);
+            if (price <= stock.redLine && stock.currentState != Stock.State.buy) {
+              stock.currentState = Stock.State.buy;
+              await emailSenderInTask.SendEmail(true, stock.name);
+            } else if (price >= stock.blueLine && stock.currentState != Stock.State.sell) {
+              stock.currentState = Stock.State.sell;
+              await emailSenderInTask.SendEmail(false, stock.name);
             } else if (price > stock.redLine && price < stock.blueLine) {
-              stock.state = 0;
+              stock.currentState = Stock.State.nothing;
             }
           }));
           if (taskList.Count == Variables.bucketListMaxSize) {
@@ -69,7 +68,7 @@ namespace processoINOA {
       var stockList = new List<Stock>();
       for (int i = 0, j = 0; i + 2 < args.Length; i += 3, j++) {
         Stock stock = new Stock();
-        stock.state = 0;
+        stock.currentState = Stock.State.nothing;
         stock.name = args[i];
         try {
           stock.blueLine = Convert.ToDecimal(args[i + 1], new CultureInfo("en-GB"));
