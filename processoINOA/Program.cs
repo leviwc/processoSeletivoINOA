@@ -7,29 +7,24 @@ using System.Globalization;
 namespace processoINOA {
   class Program {
     private static readonly CancellationTokenSource canToken = new CancellationTokenSource();
-    public static event ConsoleCancelEventHandler? CancelKeyPress;
     static async Task Main(string[] args) {
       DotNetEnv.Env.Load("config.env");
       List<Stock> stockList = ParseArgs(args);
-      Console.CancelKeyPress += (s, e) => {
-        Console.WriteLine("Fim do programa");
-        canToken.Cancel();
-        e.Cancel = true;
-      };
-      var emailSenderInTask = new EmailSender(Variables.emailDeEnvio, Variables.senhaDeEnvio, Variables.emailRecipiente);
       while (!canToken.IsCancellationRequested) {
         List<Task> taskList = new List<Task>();
         foreach (var stock in stockList) {
           taskList.Add(Task.Run(async () => {
+            var emailSenderInTask = new EmailSender(Variables.emailDeEnvio, Variables.senhaDeEnvio, Variables.emailRecipiente);
             var securities = await Yahoo.Symbols(stock.name).Fields(Field.Symbol, Field.RegularMarketPrice, Field.FiftyTwoWeekHigh).QueryAsync();
             var apiResult = securities[stock.name];
             decimal price = Convert.ToDecimal(apiResult.RegularMarketPrice);
             if (price <= stock.redLine && stock.currentState != Stock.State.buy) {
-              stock.currentState = Stock.State.buy;
               await emailSenderInTask.SendEmail(true, stock.name);
+              Console.WriteLine("paralelizou");
+              stock.currentState = Stock.State.buy;
             } else if (price >= stock.blueLine && stock.currentState != Stock.State.sell) {
-              stock.currentState = Stock.State.sell;
               await emailSenderInTask.SendEmail(false, stock.name);
+              stock.currentState = Stock.State.sell;
             } else if (price > stock.redLine && price < stock.blueLine) {
               stock.currentState = Stock.State.nothing;
             }
